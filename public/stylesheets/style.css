@@ -1,0 +1,120 @@
+/* GLOABAL */
+
+html{
+	background: #9428A6;
+	overflow-x: hidden;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background: white;
+  position: relative;
+}
+
+
+.header {
+    color: #ba68c8;
+    font-weight: 300;
+}
+
+.container{
+	width: 1200px;
+	margin: auto;
+}
+
+#loginForm, #PorjectCreation, .slim-form{
+	width: 500px;
+	margin: auto;
+}
+
+#chat{
+	position: absolute;
+	top: 150px;
+	right: 0px;
+	background: white;
+	overflow: none;
+	width: 0;
+	max-width: 400px;
+}
+
+#chatbox, #chatUserBox{
+	overflow: scroll;
+	height: 250px;
+}
+
+#chatUserBox img{
+	width: 28px;
+	height 28px;
+	vertical-align: middle;
+}
+
+.chat-users-name{
+	color: #0288D1;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.chat-message{
+	font-size: 12px;
+}
+
+.chat-message p{
+	line-height: 5px;
+}
+
+span.chat-time{
+	color: #4fc3f7;
+}
+
+span.chat-name{
+	color: #0288d1;
+	margin-left: 5px;
+}
+
+#chat-main-box{
+	height: 250px;
+	max-height: 250px;
+	overflow: hidden;
+	overflow-x: hidden;
+}
+
+#chat-toggle{
+	position: absolute;
+	width: 75px;
+	left: -75px;
+	top: 0;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+
+#chatform{
+	background: white;
+}
+
+.hidden{
+	display: none;
+}
+
+
+#projectTracker{
+	max-height: 500px;
+	height: 500px;
+	overflow:auto;
+}
+
+.small-input{
+	padding: 0;
+}
+
+.index-login-box{
+	margin: auto;
+	padding: 5px;
+	width: 250px;
+}
+
+.index-login-box .btn{
+	width: 100%;
+}

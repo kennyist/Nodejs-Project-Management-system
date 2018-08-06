@@ -1,0 +1,55 @@
+doctype html
+html
+	head
+		title= title
+		script(src="/javascripts/jquery.js")
+		script(src="https://cdn.socket.io/socket.io-1.4.3.js")
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
+		- if (chatShow){
+		script(src="/javascripts/chat.js")
+		- }
+		script(src="/javascripts/projects.js")
+		script(src="/javascripts/project.js")
+		
+		script $(document).ready(function() {  $('.modal-trigger').leanModal(); });
+	body
+		header
+			nav.purple
+				.container
+					a(href='/').brand-logo.center Soft352
+					ul#nav-mobile.left.hide-on-med-and-down
+						li
+							a(href="/projects") Projects
+		
+		block content
+			
+		footer.page-footer.purple
+			.container
+			
+			.footer-copyright
+				.container Soft352 Project Management System Copyright 2016 - #[a(href="http://tristanjc.com") Tristan Cunningham]
+				a(href="#!").grey-text.text-lighten-4.right
+				
+		- if (chatShow){
+		
+		#chat(data-name="#{locals.login.name}").z-depth-2
+			#chat-toggle.purple.lighten-2
+				p Chat
+			#chat-main-box.z-depth-2
+				.row
+					.col.s8
+						ul#chatbox
+						
+					.col.s4#chatUserBox
+						ul#users
+			#chatform
+				.row
+					.col.s8.small-input
+						input(type='text',placeholder='Message')#chatTextBox
+					.col.s4
+						button.btn.waves-effect.waves-light#chatTextBoxSend
+							i.material-icons.right send
+			- }

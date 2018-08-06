@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	.container
+		h1.header.center Project Management System
+		
+		- if (!login) {
+		.index-login-box
+			a(href='/register').btn.center Register
+			
+		.index-login-box
+			a(href='/login').btn.center Login
+		- } else { 
+			p.center Press projects in the top left to view your project portal
+		- }

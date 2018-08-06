@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	.container
+		h1.header.center Login
+		
+		form#loginForm(name="login",method="post",action="/login")
+			.row
+				.col.s12
+					.input-field
+						input#username(type="text",name="username",required="required").validate
+						label(for="username").active Username
+			.row
+				.col.s12
+					.input-field
+						input#password(type="password",name="password",required="required").validate
+						label(for="password").active Password
+			
+			if wrong
+				.card-panel.red.lighten-2 Incorrect password or username
+				
+			input(type='hidden',name='redirect',value='#{redirectLink}')#redirect
+			
+			button(type="submit").btn.waves-effect.waves-light submit
+				i.material-icons.right

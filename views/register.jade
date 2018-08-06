@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	.container
+		h4.header.center register
+		
+		
+		form(action="/register",method="post").slim-form
+			.row
+				.col.s12
+					.input-field
+						input#username(type="text",name="username",required="required").validate
+						label(for="username").active Username
+			.row
+				.col.s12
+					.input-field
+						input#password(type="password",name="password",required="required").validate
+						label(for="password").active Password
+			
+			input(type='submit',value='Register')
+			

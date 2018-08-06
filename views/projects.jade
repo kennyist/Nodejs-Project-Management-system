@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	.container
+		h1.header.center Projects 
+			a(href="#createModal",data-target="createModal").btn-floating.btn-large.waves-effect.waves-light.red.modal-trigger
+				i.material-icons add
+		
+		
+		#projects
+			.row
+				- each item in projects
+					.col.s3
+						.card
+							.card-image
+								span.card-title= item.id
+							.card-content
+								p= item.name
+							.card-action
+								a(href="/projects/#{item.id}") View
+								a(href="#",data-id="#{item.id}",data-del) Delete
+				
+					
+		#createModal.modal.bottom-sheet
+			.slim-form
+				.modal-content
+					h5.header.center Create project:
+					form(action='#')#createProjectForm
+						.row
+							.input-field.col.s12
+								input#projectTitle.validate(type='text',required,name="title")
+								label(for='projectTitle') Project Title
+								
+							.input-field.col.s12
+								input#projectDescription.validate(type='text',required,name="description")
+								label(for='projectDescription') Project Description
+								
+							button.btn.waves-effect.waves-light.right(type='submit') submit
+								i.material-icons.right send
+          
+			

@@ -1,0 +1,107 @@
+extends layout
+
+block content
+	.container#project
+		h4.header.center Tasks
+		
+		button.btn#add Add
+		#projectTracker
+			.row
+				.col.s3
+					h4.center.header Current
+					ul#current
+				.col.s3 
+					h4.center.header Backlog
+					ul#backlog
+				.col.s3
+					h4.center.header Icebox
+					ul#icebox
+				.col.s3
+					h4.center.header Completed
+					ul#completed
+					
+		h4.header.center Files
+		
+		#projectfiles
+			.row
+				- var i = 0
+				- each item in files
+					- i++	
+					- if (i > 6)
+						.row
+					
+					- else
+						.col.s2
+							.card
+								.card-image
+									img(src="")
+									span.card-title Project name
+								.card-action
+									a(href="/projects/2") View
+									a(href="") Delete
+									
+		#test.hidden #{tasks}
+		
+		#edit-modal.modal.bottom-sheet
+			.slim-form
+				.modal-content
+					h5.header.center Edit Task:
+					form(action='#')
+						.row
+							.input-field.col.s12
+								input.validate(type='text',required,name='title')
+								label(for='title').active Task Title
+								
+							.input-field.col.s12
+								input.validate(type='text',required,name='description')
+								label(for='description').active Task Description
+								
+								
+						p
+							input(name='state',type='radio',value='1',selected)#scurrent
+							label(for='scurrent') Current
+						p
+							input(name='state',type='radio',value='2')#sbacklog
+							label(for='sbacklog') Backlog
+						p
+							input(name='state',type='radio',value='3')#sicebox
+							label(for='sicebox') Icebox
+						p
+							input(name='state',type='radio',value='4')#scompleted
+							label(for='scompleted') Completed
+						
+						button.btn.waves-effect.waves-light.right(type='submit') Edit
+								i.material-icons.right send
+			
+		#create-modal.modal.bottom-sheet
+			.slim-form
+				.modal-content
+					h5.header.center Create Task:
+					form(action='#')
+						.row
+							.input-field.col.s12
+								input.validate(type='text',required,name='ctitle')
+								label(for='ctitle') Task Title
+								
+							.input-field.col.s12
+								input.validate(type='text',required,name='cdescription')
+								label(for='cdescription') Task Description
+								
+						p
+							input(name='cstate',type='radio',value='1',selected)#ccurrent
+							label(for='ccurrent') Current
+						p
+							input(name='cstate',type='radio',value='2')#cbacklog
+							label(for='cbacklog') Backlog
+						p
+							input(name='cstate',type='radio',value='3')#cicebox
+							label(for='cicebox') Icebox
+						p
+							input(name='cstate',type='radio',value='4')#ccompleted
+							label(for='ccompleted') Completed
+						br
+						
+						input(type="hidden",name="pid",value="#{title}")
+						
+						button.btn.waves-effect.waves-light.right(type='submit') Create
+								i.material-icons.right send		
